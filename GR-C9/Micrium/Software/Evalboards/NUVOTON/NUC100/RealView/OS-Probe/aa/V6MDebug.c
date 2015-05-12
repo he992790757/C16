@@ -106,7 +106,22 @@ static uint32_t V6M_ProcessOneCommand(const uint8_t *pu8Buffer, uint32_t u32Len)
 			
 			    case V6M_CMD_UV_365:
 			        return LED_on(pu8Buffer, u32Len,V6M_CMD_UV_365);
-			
+					
+					case V6M_CMD_TOP_UV:
+							return LED_on(pu8Buffer, u32Len,V6M_CMD_TOP_UV);
+					case V6M_CMD_BOT_UV:
+							return LED_on(pu8Buffer, u32Len,V6M_CMD_BOT_UV);
+					case V6M_CMD_TOP_BLUE:
+							return LED_on(pu8Buffer, u32Len,V6M_CMD_TOP_BLUE);
+					
+					case V6M_CMD_TOP_940_SMALL:
+							return LED_on(pu8Buffer, u32Len,V6M_CMD_TOP_940_SMALL);
+
+					case V6M_CMD_TOP_770_SMALL:
+							return LED_on(pu8Buffer, u32Len,V6M_CMD_TOP_770_SMALL);
+					
+					case V6M_CMD_TOP_LASER:
+							return LED_on(pu8Buffer, u32Len,V6M_CMD_TOP_LASER);					
 			    case V6M_CMD_SIDE_IR:
 			        return LED_on(pu8Buffer, u32Len,V6M_CMD_SIDE_IR );
 
@@ -517,14 +532,25 @@ uint32_t LED_on(const uint8_t *pu8Buffer, uint32_t u32Len, uint8_t u8LedNum)
 	switch(Select_LED)
 	{
 		case V6M_CMD_TOP_W	:  	{	ptr = Top_W_On	; 		}break;
-		case V6M_CMD_SIDE_W	: 	{	ptr = Left_W_On	; 		}break;
-		case V6M_CMD_SIDE_W_90: {	ptr = Right_W_On;		}break;		
+		case V6M_CMD_SIDE_W	: 	{	ptr = Right_W_On	; 		}break;
+		case V6M_CMD_SIDE_W_90: {	ptr = Left_W_On;		}break;		
 		case V6M_CMD_IR_850:	{	ptr = Top_IR850_On;		}break;
 		case V6M_CMD_IR_940: 	{	ptr = Top_IR940_On;		}break;
 		case V6M_CMD_IR_940_test: 	{	ptr = Top_IR940_On_test;		}break;
 		case V6M_CMD_UV_365:	{	ptr = Double_UV_On;		}break;
-		case V6M_CMD_SIDE_IR_90:{	ptr = Right_IR850_On;	}break;			
-		case V6M_CMD_SIDE_IR:	{	ptr = Left_IR850_On;	}break;
+		
+		case V6M_CMD_TOP_BLUE:	{	ptr = Left_Blue_On;		}break;	
+		case V6M_CMD_TOP_LASER:	{	ptr = Right_ASK_Blink;		}break;	
+		
+		case V6M_CMD_TOP_UV:	{	ptr = TopLeft_Uv_On;		}break;
+		
+		case V6M_CMD_TOP_940_SMALL:	{	ptr = Top_Ir940_Small_On;		}break;
+		case V6M_CMD_TOP_770_SMALL:	{	ptr = Right_IR770_On;		}break;
+		
+		case V6M_CMD_BOT_UV:	{	ptr = Bot_Uv_On;		}break;
+		
+		case V6M_CMD_SIDE_IR_90:{	ptr = Left_IR850_On;	}break;			
+		case V6M_CMD_SIDE_IR:	{	ptr =Right_IR850_On ;	}break;
 		case V6M_CMD_BOT_W:		{	ptr = Bot_W_On;			}break;
 		case V6M_CMD_BOT_IR:	{	ptr = Bot_IR_On;		}break;
 

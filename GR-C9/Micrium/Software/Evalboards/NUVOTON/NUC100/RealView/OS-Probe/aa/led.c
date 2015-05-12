@@ -734,32 +734,35 @@ void Bot_Uv_On(void)
 
 void Top_Ir940_Small_On(void)
 {
-	if(System.Dsp.Mode == CHECK_MODE||(System.Dsp.Mode == PCCAM_MODE))
-	{
-		if(System.Dsp.Sensor == C608) Sensor1(); 
-		DSP_SENDB(0x16,TOP_LABEL, "IR3 " ); 
-		
-		Light_Init();
-		TOP_IR940_SMAL = 0;	
-		FilterSwitcher(FILTER_W ) ;
+		if(System.Dsp.Sensor == SENSOR2 )
+		{
+				if(System.Dsp.Mode == CHECK_MODE||(System.Dsp.Mode == PCCAM_MODE))
+				{
+					if(System.Dsp.Sensor == C608) Sensor1(); 
+					DSP_SENDB(0x16,TOP_LABEL, "IR3 " ); 
+						
+					Light_Init();
+					TOP_IR940_SMAL = 0;	
+					FilterSwitcher(FILTER_W ) ;
 
-		Scen_Send(G_SENCE_WT,0x02);
-//        Dsp_Send_Data(0xFF,G_SENCE_WT,127,127,D_NON); //白平衡
-//		Scen_Send(0xD7,127) ; 		    //锐度
-//        Scen_Send(0xDA,127) ; 		    //对比度
-//        Scen_Send(0xD9,127) ; 			//亮度
-//		Scen_Send(0xD8,127) ;				//饱和度
-//        Dsp_Send_Data(0xFB,G_SENCE_WT,18,30,D_NON); //曝光度
-//        Dsp_Send_Data(0xFC,G_SENCE_WT,18,30,D_NON); //曝光时间
-//		Scen_Send(G_SENCE_WT,0x03);
+					Scen_Send(G_SENCE_WT,0x02);
+			//        Dsp_Send_Data(0xFF,G_SENCE_WT,127,127,D_NON); //白平衡
+			//		Scen_Send(0xD7,127) ; 		    //锐度
+			//        Scen_Send(0xDA,127) ; 		    //对比度
+			//        Scen_Send(0xD9,127) ; 			//亮度
+			//		Scen_Send(0xD8,127) ;				//饱和度
+			//        Dsp_Send_Data(0xFB,G_SENCE_WT,18,30,D_NON); //曝光度
+			//        Dsp_Send_Data(0xFC,G_SENCE_WT,18,30,D_NON); //曝光时间
+			//		Scen_Send(G_SENCE_WT,0x03);
 
 
-//		Scen_Send(G_SENCE_T_IR940_SMAL,0x02);	
-		OSTimeDly(10); 
-		System.Led.Statu = T_IR940_SMAL_ON; 
-	//	ADC_Checking(ADC_CK_VLT_R_LA,ADC_RSD_R_LA);
-	pFuc   =Top_Ir940_Small_On  ;
-	}
+			//		Scen_Send(G_SENCE_T_IR940_SMAL,0x02);	
+					OSTimeDly(10); 
+					System.Led.Statu = T_IR940_SMAL_ON; 
+				//	ADC_Checking(ADC_CK_VLT_R_LA,ADC_RSD_R_LA);
+				pFuc   =Top_Ir940_Small_On  ;
+				}
+			}
 }
 
 void Top_W_Small_On(void)
@@ -964,34 +967,37 @@ void Double_UV_Exposure2_On(void)
 
 void Right_IR770_On(void)
 {
-	if(System.Dsp.Mode == CHECK_MODE||(System.Dsp.Mode == PCCAM_MODE))
-	{
-		if(System.Dsp.Sensor == C608) Sensor1(); 
+		if(System.Dsp.Sensor == SENSOR2 )
+		{
+			if(System.Dsp.Mode == CHECK_MODE||(System.Dsp.Mode == PCCAM_MODE))
+			{
+				if(System.Dsp.Sensor == C608) Sensor1(); 
 
-		DSP_SENDB(0x16,TOP_LABEL, "IR1 " ); 
-		Light_Init();
-		RIGHT_IR770 = 0;
-		FilterSwitcher(FILTER_W) ;
+				DSP_SENDB(0x16,TOP_LABEL, "IR1 " ); 
+				Light_Init();
+				RIGHT_IR770 = 0;
+				FilterSwitcher(FILTER_W) ;
 
-		Scen_Send(G_SENCE_WT,0x02);
-        Dsp_Send_Data(0xFF,G_SENCE_WT,52,89,D_NON); //白平衡
-		Scen_Send(0xD7,127) ; 		    //锐度
-        Scen_Send(0xDA,127) ; 		    //对比度
-        Scen_Send(0xD9,127) ; 			//亮度
-		Scen_Send(0xD8,127) ;				//饱和度
-        Dsp_Send_Data(0xFB,G_SENCE_WT,4,4,D_NON); //曝光度
-        Dsp_Send_Data(0xFC,G_SENCE_WT,6,6,D_NON); //曝光时间
- //       Dsp_Send_Data(0xFB,G_SENCE_WT,12,12,D_NON); //曝光度
- //       Dsp_Send_Data(0xFC,G_SENCE_WT,14,14,D_NON); //曝光时间
-		Scen_Send(G_SENCE_WT,0x03);
+				Scen_Send(G_SENCE_WT,0x02);
+				Dsp_Send_Data(0xFF,G_SENCE_WT,52,89,D_NON); //白平衡
+				Scen_Send(0xD7,127) ; 		    //锐度
+				Scen_Send(0xDA,127) ; 		    //对比度
+				Scen_Send(0xD9,127) ; 			//亮度
+				Scen_Send(0xD8,127) ;				//饱和度
+				Dsp_Send_Data(0xFB,G_SENCE_WT,4,4,D_NON); //曝光度
+				Dsp_Send_Data(0xFC,G_SENCE_WT,6,6,D_NON); //曝光时间
+				//       Dsp_Send_Data(0xFB,G_SENCE_WT,12,12,D_NON); //曝光度
+				//       Dsp_Send_Data(0xFC,G_SENCE_WT,14,14,D_NON); //曝光时间
+				Scen_Send(G_SENCE_WT,0x03);
 
 
-//		Scen_Send(G_SENCE_T_IR770,0x02);	
-		OSTimeDly(10); 
-		System.Led.Statu = RIGHT_IR770_ON; 
-		pFuc   = Right_IR770_On ;
-	//	ADC_Checking(ADC_CK_VLT_R_770,ADC_RSD_R_770);
-	}
+		//		Scen_Send(G_SENCE_T_IR770,0x02);	
+				OSTimeDly(10); 
+				System.Led.Statu = RIGHT_IR770_ON; 
+				pFuc   = Right_IR770_On ;
+			//	ADC_Checking(ADC_CK_VLT_R_770,ADC_RSD_R_770);
+			}
+		}
 }
 
 
@@ -1017,26 +1023,26 @@ void Right_Laser_On(void)
 void C608_On(void)
 {
 	if(System.Dsp.Mode == CHECK_MODE||(System.Dsp.Mode == PCCAM_MODE))
-	{
-		Light_Init();
-		A1=0;  
-		A0=1; 
-		EN=1;
-	  	C3_PWR = 1;	
-		RTD2662_AV = 0 ; 											                                                                                    
-		OSTimeDly(10);
-		
-		DSP_SENDB(0x16,0x08, " C608");	 			
-		OSTimeDly(10);	
-		
-		Select_Send(0x39);			      
-		OSTimeDly(200);
-		  
-		Scen_Send(0xC1,0xC8);
-		pFuc   = C608_On ;
-		System.Led.Statu = C608_PWR_ON; 
-		System.Dsp.Sensor = C608 ;
-	}
+		{
+			Light_Init();
+			A1=0;  
+			A0=1; 
+			EN=1;
+		  	C3_PWR = 1;	
+			RTD2662_AV = 0 ; 											                                                                                    
+			OSTimeDly(10);
+			
+			DSP_SENDB(0x16,0x08, " C608");	 			
+			OSTimeDly(10);	
+			
+			Select_Send(0x39);			      
+			OSTimeDly(200);
+			  
+			Scen_Send(0xC1,0xC8);
+			pFuc   = C608_On ;
+			System.Led.Statu = C608_PWR_ON; 
+			System.Dsp.Sensor = C608 ;
+		}
 //	System.Dsp.Scale_Status = X0;    //存储方式
 }
 

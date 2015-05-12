@@ -33,11 +33,15 @@ V6MDEBUG_EXT 	void (*ptr)();
 #define V6M_CMD_UV_365		0x07UL
 #define V6M_CMD_SIDE_IR		0x08UL
 #define V6M_CMD_SIDE_IR_90	0xB8UL
-#define V6M_CMD_BOT_W		0x09UL
+#define V6M_CMD_BOT_W			0x09UL
 #define V6M_CMD_BOT_IR		0x0AUL
 
+////////////////////////////////////////////
 
 
+
+
+////////////////////////////////////////////
 
 
 #define V6M_CMD_COUN_PIC	0x0BUL
@@ -135,6 +139,15 @@ V6MDEBUG_EXT 	void (*ptr)();
 #define V6M_CMD_Photo_Eight  0xC5UL		   	//8连拍
 
 #define V6M_CMD_XY_ZOOM      0xBFUL		   	//用USB看坐标 位置放大
+
+#define V6M_CMD_TOP_UV	0XE1UL
+#define V6M_CMD_BOT_UV	0XE2UL 
+
+#define V6M_CMD_TOP_BLUE	0XE3UL
+#define V6M_CMD_TOP_LASER	0XE4UL 
+
+#define V6M_CMD_TOP_940_SMALL	0XE6UL
+#define V6M_CMD_TOP_770_SMALL	0XE7UL 
 
 
 int32_t DrvFMC_Read(uint32_t u32addr, uint32_t * u32data);
