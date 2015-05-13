@@ -682,7 +682,7 @@ void Left_Blue_On(void)
 		    	System.Dsp.Sensor = SENSOR2 ; 								
 		    	Dsp_Send_Data(0x71,0x00,0x22,20,150);
 				FilterSwitcher(FILTER_IR) ;		//滤片切换器要到sensor后面切 
-		    	OSTimeDly(100); 
+		    	OSTimeDly(150); 
 			}																																				
 //			Check_View_Zoom(X0)	;   
 			FilterSwitcher(FILTER_IR) ;		//滤片切换器要到sensor后面切 
@@ -984,8 +984,8 @@ void Right_IR770_On(void)
 				Scen_Send(0xDA,127) ; 		    //对比度
 				Scen_Send(0xD9,127) ; 			//亮度
 				Scen_Send(0xD8,127) ;				//饱和度
-				Dsp_Send_Data(0xFB,G_SENCE_WT,4,4,D_NON); //曝光度
-				Dsp_Send_Data(0xFC,G_SENCE_WT,6,6,D_NON); //曝光时间
+				Dsp_Send_Data(0xFB,G_SENCE_WT,8,8,D_NON); //曝光度
+				Dsp_Send_Data(0xFC,G_SENCE_WT,14,14,D_NON); //曝光时间
 				//       Dsp_Send_Data(0xFB,G_SENCE_WT,12,12,D_NON); //曝光度
 				//       Dsp_Send_Data(0xFC,G_SENCE_WT,14,14,D_NON); //曝光时间
 				Scen_Send(G_SENCE_WT,0x03);
